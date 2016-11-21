@@ -44,7 +44,7 @@ public class PersistentMemoryTransactionDAO implements TransactionDAO {
 
     @Override
     public void logTransaction(Date date, String accountNo, ExpenseType expenseType, double amount) {
-        String sqlQuery = "insert into " + TransactionTable.NAME + " (" +
+        String sqlQuery = "insert into " + TransactionTable.NAME + "(" +
                 TransactionTable.Cols.DATE + ", " +
                 TransactionTable.Cols.ACCOUNT_NO + ", " +
                 TransactionTable.Cols.TYPE + ", " +
@@ -61,6 +61,7 @@ public class PersistentMemoryTransactionDAO implements TransactionDAO {
         sqlStatement.bindDouble(4, amount);
 
         sqlStatement.executeInsert();
+
     }
 
     @Override
@@ -100,7 +101,8 @@ public class PersistentMemoryTransactionDAO implements TransactionDAO {
 
     @Override
     public List<Transaction> getPaginatedTransactionLogs(int limit) {
-
+        List<Transaction> transactions = new ArrayList<>();
+        transactions = getAllTransactionLogs();
         int size = transactions.size();
         if (size <= limit) {
             return transactions;

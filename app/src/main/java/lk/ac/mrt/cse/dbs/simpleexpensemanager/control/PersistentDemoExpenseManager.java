@@ -25,10 +25,11 @@ public class PersistentDemoExpenseManager extends ExpenseManager {
         SQLiteDatabase mDatabase = context.openOrCreateDatabase("140045e", context.MODE_PRIVATE, null);
 
         mDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + ExpenseManagerSchema.TransactionTable.NAME + "(" +
-                ExpenseManagerSchema.TransactionTable.Cols.DATE + " VARCHAR, " +
-                ExpenseManagerSchema.TransactionTable.Cols.ACCOUNT_NO + " VARCHAR PRIMARY KEY, " +
-                ExpenseManagerSchema.TransactionTable.Cols.TYPE + " VARCHAR, " +
-                ExpenseManagerSchema.TransactionTable.Cols.AMOUNT + " VARCHAR" +
+                " _id integer primary key autoincrement, " +
+                ExpenseManagerSchema.TransactionTable.Cols.DATE + ", " +
+                ExpenseManagerSchema.TransactionTable.Cols.ACCOUNT_NO + ", " +
+                ExpenseManagerSchema.TransactionTable.Cols.TYPE + ", " +
+                ExpenseManagerSchema.TransactionTable.Cols.AMOUNT +
 
                 ");"
 

@@ -100,6 +100,7 @@ public class PersistentMemoryAccountDAO implements AccountDAO {
                 ExpenseManagerSchema.AccountTable.Cols.ACCOUNT_NO + "=  ?";
         SQLiteStatement sqlStatement = mDatabase.compileStatement(sqlQuery);
         sqlStatement.bindString(1, accountNo);
+        sqlStatement.executeUpdateDelete();
     }
 
     @Override

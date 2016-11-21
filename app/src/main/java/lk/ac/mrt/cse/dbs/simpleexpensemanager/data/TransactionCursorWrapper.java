@@ -29,7 +29,7 @@ public class TransactionCursorWrapper  extends CursorWrapper{
         String type = getString(getColumnIndex(ExpenseManagerSchema.TransactionTable.Cols.TYPE));
         double amount = getDouble(getColumnIndex(ExpenseManagerSchema.TransactionTable.Cols.AMOUNT));
         ExpenseType typeE;
-        if (type=="EXPENSE"){
+        if (type.equals("EXPENSE")){
             typeE = ExpenseType.EXPENSE;
         }
         else{
